@@ -7,11 +7,10 @@
   <!-- <link rel="stylesheet" href="/static/css/app.css"> -->
   <link rel="stylesheet" href="/static/css/dashboard.css">
   <link rel="stylesheet" href="static/css/upload.css" />
-    <link rel="stylesheet" href="static/css/table.css">
+  <link rel="stylesheet" href="static/css/table.css">
   <link rel="stylesheet" href="static/css/full-table.css">
   <link rel="stylesheet" href="static/css/charts.css">
-
-  <!-- <link rel="stylesheet" href="static/css/custom.css"> -->
+  <link rel="stylesheet" href="static/css/custom.css">
   <!-- <link rel="stylesheet" href="static/css/chatbot.css"> -->
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -83,7 +82,7 @@
   </header>
   <main>
       <section id="upload" class="section page">
-            <div class="upload-container card">
+            <div class="upload-container">
               <div class="upload-header">
                 <h1>Upload Your Data</h1>
                 <p>Import a CSV file to get started with AI-powered analysis</p>
@@ -174,16 +173,22 @@
       
         <div id="pageFulltable">
           <!-- RAW TABLE -->
-        <div id="rawTableBlock" class="hidden">
-          <h3>Raw Dataset</h3>
-          <div id="rawTable"></div>
+          <div id="rawTableBlock" class="table-block hidden">
+            <h3>Raw Dataset</h3>
+            <div class="table-wrapper" id="rawTable">
+              <!-- table injected by JS -->
+            </div>
+          </div>
+
+          <!-- CLEANED TABLE -->
+          <div id="cleanTableBlock" class="table-block hidden">
+            <h3>Cleaned Dataset</h3>
+            <div class="table-wrapper" id="cleanTable">
+              <!-- table injected by JS -->
+            </div>
+          </div>
         </div>
-        <!-- CLEANED TABLE -->
-        <div id="cleanTableBlock" class="hidden">
-          <h3>Cleaned Dataset</h3>
-          <div id="cleanTable"></div>
-        </div>
-        </div>
+
         
       </section>
 
@@ -221,9 +226,21 @@
           </div>
         </div>
 
+        <!-- CUSTOM PAGE -->
         <div id="customPage" class="hidden">
-          <div id="customContainer" class="custom-grid hidden"></div>
+
+          <!-- A4 Pages Wrapper -->
+          <div id="customContainer" class="a4-wrapper"></div>
+
+          <!-- Controls -->
+          <div class="page-controls">
+            <button id="addPageBtn" class="btn btn-primary">➕ Add A4 Page</button>
+            <button onclick="printAllPages()" class="btn btn-secondary">🖨️ Print All</button>
+            <button onclick="printCurrentPage()" class="btn btn-secondary">🧾 Print Current Page</button>
+          </div>
+
         </div>
+
       </section>
 
       <section id="chatbot" class="section page hidden">

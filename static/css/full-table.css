@@ -1,58 +1,86 @@
-.table-header {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.table-header p {
-  color: #64748b;
-  margin: 4px 0 0;
-}
-
-/*----------  SEARCH  ----------*/
-
-.search-box {
-  position: relative;
-  width: 280px;
-  max-width: 100%;
-}
-
-.search-box i {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #64748b;
-}
-
-.search-box input {
+/* ===============================
+   PAGE CONTAINER
+================================ */
+#pageFulltable {
   width: 100%;
-  padding: 10px 12px 10px 32px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  max-width: 100vw;
+  padding: clamp(0.25rem, 1vw, 1rem);
+  background-color: antiquewhite;
+  box-sizing: border-box;
+
+  /* allow scroll if needed */
+  overflow-x: hidden;
 }
 
-/*----------  PAGINATION  ----------*/
-
-.pagination {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+/* ===============================
+   TABLE BLOCKS
+================================ */
+.table-block {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
-.pagination .controls {
-  display: flex;
-  gap: 8px;
+/* ===============================
+   TABLE WRAPPER (SCROLL CONTROL)
+================================ */
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
-.cell-cleaned {
-  background-color: #fff3cd;
-  color: #92400e;
+/* ===============================
+   TABLE STYLING
+================================ */
+.table-wrapper table {
+  width: 100%;
+  min-width: 100%;              /* desktop */
+  border-collapse: collapse;
+}
+
+/* ===============================
+   TABLE CELLS
+================================ */
+.table-wrapper th,
+.table-wrapper td {
+  padding: clamp(0.4rem, 0.8vw, 0.75rem);
+  text-align: left;
+
+  /* TEXT RESPONSIVE */
+  font-size: clamp(0.75rem, 0.9vw, 1rem);
+
+  white-space: nowrap;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===============================
+   HEADERS
+================================ */
+.table-wrapper th {
+  position: sticky;
+  top: 0;
+  white-space: normal;
   font-weight: 600;
+  background: #f3f3f3;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 768px) {
+  .table-wrapper table {
+    min-width: 600px;   /* horizontal scroll on mobile */
+  }
+}
+
+/* ===============================
+   EXTRA SMALL DEVICES
+================================ */
+@media (max-width: 480px) {
+  .table-wrapper table {
+    min-width: 500px;
+  }
 }

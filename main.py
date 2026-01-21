@@ -96,6 +96,8 @@ async def auth_page():
     return HTMLResponse("<h3>auth.html not found</h3>", status_code=404)
 
 
+
+
 UPLOAD_LIMIT_FILE = OUTPUT_DIR / "upload_limits.json"
 
 def load_upload_limits():
@@ -116,21 +118,13 @@ async def upload_csv(
     request: Request,
     file: UploadFile = File(...)
 ):
-    # -----------------------------------
-    # AUTH INFO FROM HEADER (FRONTEND)
-    # -----------------------------------
     user_email = request.headers.get("X-User-Email")
     user_provider = request.headers.get("X-User-Provider", "guest")
 
     is_guest = user_provider == "guest"
-
-    # -----------------------------------
-    # SERVER-SIDE UPLOAD LIMIT
-    # -----------------------------------
-    upload_limits = load_upload_limits()
-
     user_key = user_email or "guest"
 
+    upload_limits = load_upload_limits()
     current_count = upload_limits.get(user_key, 0)
 
     if is_guest and current_count >= 1:
@@ -139,15 +133,6 @@ async def upload_csv(
             detail="Guest upload limit reached. Please upgrade."
         )
 
-    # -----------------------------------
-    # INCREMENT COUNT (LOCK)
-    # -----------------------------------
-    upload_limits[user_key] = current_count + 1
-    save_upload_limits(upload_limits)
-
-    # -----------------------------------
-    # FILE VALIDATION
-    # -----------------------------------
     filename = file.filename or "upload.csv"
     if not filename.lower().endswith(".csv"):
         raise HTTPException(status_code=400, detail="Only CSV files allowed")
@@ -159,19 +144,40 @@ async def upload_csv(
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid CSV file")
 
-    # -----------------------------------
-    # PROCESS + SAVE
-    # -----------------------------------
+    # clean + process
     df = clean_dataset(df)
 
+    # save dataset
     df.to_json(LAST_JSON_PATH, orient="records")
     df.to_pickle(LAST_DF_PATH)
+
+    # ✅ increment AFTER success
+    upload_limits[user_key] = current_count + 1
+    save_upload_limits(upload_limits)
 
     return {
         "filename": filename,
         "rows": len(df),
         "data": df.fillna("").astype(str).to_dict(orient="records")
     }
+
+@app.get("/last-upload")
+def last_upload():
+    if not LAST_JSON_PATH.exists():
+        raise HTTPException(status_code=404, detail="No previous upload found")
+
+    try:
+        with open(LAST_JSON_PATH, "r") as f:
+            data = json.load(f)
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to load dataset")
+
+    return {
+        "filename": "last_upload.csv",
+        "rows": len(data),
+        "data": data
+    }
+
 
 # ==================================================
 # DOWNLOAD LAST JSON

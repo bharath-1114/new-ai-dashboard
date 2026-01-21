@@ -1,6 +1,11 @@
 /* =========================================================
    CUSTOM PAGE
 ========================================================= */
+#customContainer{
+  /* background-color: #2188fd; */
+  height: 100%;
+    width: 100%;
+}
 /* Base panel */
 .panel {
     position: relative;
@@ -43,13 +48,16 @@
   
   /* Custom page layout */
   .custom-grid {
+    height: 100vh;
+    width: 100%;
+    background-color: #6b7280;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: 18px;
   }
-  /* .custom-grid .panel {
-    background-color: #2d88e2;
-  } */
+  .custom-grid .panel {
+    background-color: #c4350a;
+  }
   
   .chartpanel {
     /* background: #ffffff; */
@@ -225,3 +233,143 @@
     border-radius: 2px;
   }
   
+  /* ===========================
+   A4 PAGE SYSTEM
+=========================== */
+
+.a4-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 20px;
+  background: #e5e7eb;
+}
+
+/* A4 PAGE */
+.a4-page {
+  width: 794px;
+  height: 1123px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* HEADER */
+.a4-header {
+  height: 60px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+/* FOOTER */
+.a4-footer {
+  height: 40px;
+  padding: 8px 20px;
+  border-top: 1px solid #e5e7eb;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  text-align: right;
+}
+
+/* CONTENT AREA */
+.a4-canvas {
+  position: relative;
+  height: calc(1123px - 100px); /* header + footer */
+  padding: 10px;
+  overflow: visible;
+}
+
+/* PAGE CONTROLS */
+.page-controls {
+  display: flex;
+  gap: 12px;
+  margin: 20px;
+}
+
+/* ===========================
+   CUSTOM CARDS
+=========================== */
+
+.custom-card {
+  position: absolute;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: grab;
+}
+
+.custom-card.dragging {
+  cursor: grabbing;
+  opacity: 0.85;
+  z-index: 9999;
+}
+
+.custom-card .resize-handle {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 12px;
+  height: 12px;
+  background: rgba(0,0,0,0.35);
+  cursor: nwse-resize;
+}
+
+/* ===========================
+   PRINT
+=========================== */
+
+/* ===========================
+   FORCE TRUE A4 PRINT
+=========================== */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* show only A4 pages */
+  .a4-page,
+  .a4-page * {
+    visibility: visible;
+  }
+
+  .a4-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    page-break-after: always;
+    box-shadow: none;
+    border: none;
+  }
+
+  .page-controls {
+    display: none !important;
+  }
+}
+@media print {
+  .a4-page {
+    outline: 2px solid red;
+  }
+}

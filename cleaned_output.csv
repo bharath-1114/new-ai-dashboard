@@ -1,10 +1,21 @@
-student_id,name,class,section,gender,dob,age,subject,marks,total_marks,percentage,attendance,result,fee_status,scholarship,admission_year,email
-STU001,Rahul Sharma,10,A,Male,2025-05-14,15,Maths,87%,100%,87%,92.0%,Pass,Paid,No,2022,rahulsharma@gmail.com
-STU002,Anita Kumari,10,A,Female,2023-05-14,16,Science,0%,100%,0%,88.0%,Pass,Pending,Yes,2021,anitakumari@gmail.com
-STU003,Vikram Rao,10,B,Male,2021-05-14,15,English,65%,100%,65%,100.0%,Pass,Paid,No,2022,vikramrao@gmail.com
-STU004,Meera Singh,10,B,Female,2024-05-14,1,Maths,45%,100%,45%,70.0%,Fail,Pending,No,2021,meerasingh@gmail.com
-STU005,John Peter,9,A,Male,2025-05-14,14,Science,92%,100%,92%,95.0%,Pass,Paid,Yes,2023,johnpeter@gmail.com
-STU006,Sana Ahmed,9,A,Female,2025-05-14,14,English,100%,100%,100%,90.0%,Pass,Paid,No,2023,sanaahmed@gmail.com
-STU008,Kavya Reddy,9,B,Female,2025-05-14,14,Science,71%,100%,71%,100.0%,Pass,Paid,Yes,2022,kavyareddy@gmail.com
-STU009,Manoj Kumar,10,A,Male,2025-05-14,16,English,39%,100%,39%,60.0%,Pass,Pending,No,2021,manojkumar@gmail.com
-STU010,Priya Patel,10,B,Female,2025-05-14,15,Maths,95%,0%,95%,97.0%,Pass,Paid,Yes,2022,priyapatel@gmail.com
+studentid,name,age,gender,class,section,math,science,english,attendance(%),email
+01,Aarav,15,Male,10,A,78,80,75,92%,aarav@gmail.com
+02,Diya,14,Female,10,A,85,82,88,95%,diya@gmail.com
+03,Rohan,15,Male,10,B,69,71,70,88%,rohan@gmail.com
+04,Priya,16,Female,10,A,90,88,92,97%,priya@gmail.com
+05,Kunal,14,Male,10,B,72,74,73,90%,kunal@gmail.com
+06,Neha,15,Female,10,A,88,90,85,96%,neha@gmail.com
+07,Arjun,16,Male,10,B,91,93,90,98%,arjun@gmail.com
+08,Ananya,15,Female,10,A,84,85,86,94%,ananya@gmail.com
+09,Vikram,14,Male,10,B,67,69,68,87%,vikram@gmail.com
+10,Pooja,16,Female,10,A,79,77,80,91%,pooja@gmail.com
+11,Rahul,15,Male,10,B,73,76,74,89%,rahul@gmail.com
+12,Sneha,14,Female,10,A,86,84,87,93%,sneha@gmail.com
+13,Amit,16,Male,10,B,92,91,89,97%,amit@gmail.com
+14,Kavya,15,Female,10,A,81,83,82,92%,kavya@gmail.com
+15,Sanjay,14,Male,10,B,70,72,71,88%,sanjay@gmail.com
+16,Meera,16,Female,10,A,89,88,88,96%,meera@gmail.com
+17,Nikhil,15,Male,10,B,75,78,76,90%,nikhil@gmail.com
+18,Isha,14,Female,10,A,83,86,84,94%,isha@gmail.com
+19,Manoj,16,Male,10,B,68,70,69,86%,manoj@gmail.com
+20,Ritika,15,Female,10,A,87,89,90,95%,ritika@gmail.com

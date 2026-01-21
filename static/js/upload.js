@@ -1,5 +1,5 @@
 // ==================================================
-// upload.js (FINAL – FIXED)
+// upload.js (FINAL – WITH RELOAD PERSISTENCE)
 // ==================================================
 
 // ---------------- ELEMENTS ----------------
@@ -62,9 +62,6 @@ async function handleFile(file) {
   hide(idleState);
   show(loadingState);
 
-  // hide empty states everywhere
-  // showSection("table");
-
   // ---------------- SEND TO BACKEND ----------------
   const form = new FormData();
   form.append("file", file);
@@ -96,17 +93,24 @@ async function handleFile(file) {
 
   const json = await res.json();
 
-
   // ---------------- SUCCESS ----------------
   parsedData = json.data || [];
   currentFileName = json.filename || file.name;
 
-  // 🔒 LOCK upload count ONLY AFTER SUCCESS
+  // 🔒 lock upload count AFTER success
   localStorage.setItem(uploadKey, uploadCount + 1);
 
   window.isUploading = false;
   window.isFileUploaded = true;
   localStorage.setItem("hasData", "true");
+
+  // ✅ SAVE STATE FOR PAGE RELOAD
+  localStorage.setItem("uploadState", JSON.stringify({
+    uploaded: true,
+    filename: currentFileName,
+    rows: json.rows,
+    size: file.size
+  }));
 
   hide(loadingState);
   show(fileState);
@@ -116,9 +120,8 @@ async function handleFile(file) {
   fileSizeEl.textContent = (file.size / 1024).toFixed(1) + " KB";
   dataSummary.textContent = `${json.rows} rows`;
 
-    // 🔗 CONNECT TO MAIN.JS
+  // 🔗 connect to main.js / dashboard
   window.afterUploadSuccess?.(json);
-  // showSection("table");
 }
 
 // ---------------- EVENTS ----------------
@@ -149,7 +152,10 @@ removeBtn.onclick = () => {
   window.isUploading = false;
   window.isFileUploaded = false;
 
+  // ✅ CLEAR STORED STATE
   localStorage.removeItem("hasData");
+  localStorage.removeItem("uploadState");
+
   document.body.classList.remove("has-file");
 
   parsedData = [];
@@ -183,3 +189,36 @@ downloadBtn.onclick = () => {
   a.download = currentFileName.replace(".csv", ".json");
   a.click();
 };
+
+// ---------------- RESTORE STATE ON PAGE RELOAD ----------------
+document.addEventListener("DOMContentLoaded", async () => {
+  const state = JSON.parse(localStorage.getItem("uploadState"));
+  if (!state || !state.uploaded) return;
+
+  // restore upload UI
+  document.body.classList.add("has-file");
+  hide(idleState);
+  hide(loadingState);
+  show(fileState);
+  show(dataActions);
+
+  fileNameEl.textContent = state.filename;
+  fileSizeEl.textContent = (state.size / 1024).toFixed(1) + " KB";
+  dataSummary.textContent = `${state.rows} rows`;
+
+  window.isFileUploaded = true;
+
+  // 🔥 RESTORE TABLES / CHARTS / CHATBOT
+  try {
+    const res = await fetch("/last-upload");
+    if (!res.ok) return;
+
+    const json = await res.json();
+
+    // this rehydrates EVERYTHING
+    window.afterUploadSuccess?.(json);
+  } catch (err) {
+    console.error("Restore failed", err);
+  }
+});
+

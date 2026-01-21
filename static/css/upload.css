@@ -3,11 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
+  /* width: 100%; */
+  /* max-width: 600px; */
+  background: #fff;
+  border: 1px solid #64748b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-
 .upload-header {
   width: 100%;
   text-align: center;
@@ -32,7 +35,7 @@
 .drop-zone {
   border: 2px dashed #cbd5e1;
   border-radius: 12px;
-  padding: 60px;
+  padding: 1rem;
   text-align: center;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
