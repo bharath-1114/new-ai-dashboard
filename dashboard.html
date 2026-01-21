@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="/static/css/app.css"> -->
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+  <link rel="stylesheet" href="static/css/upload.css" />
+    <link rel="stylesheet" href="static/css/table.css">
+  <link rel="stylesheet" href="static/css/full-table.css">
+  <link rel="stylesheet" href="static/css/charts.css">
+
+  <!-- <link rel="stylesheet" href="static/css/custom.css"> -->
+  <!-- <link rel="stylesheet" href="static/css/chatbot.css"> -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+  <header class="container" >
+      <div class="navbar">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <div class="logo-icon">
+              <!-- Bar chart icon (SVG replacement for lucide-react) -->
+              <svg viewBox="0 0 24 24"fill="none" stroke="white" stroke-width="2"stroke-linecap="round"stroke-linejoin="round"class="logo-svg">
+                <line x1="12" y1="20" x2="12" y2="10"></line>
+                <line x1="18" y1="20" x2="18" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              <!-- Status dot -->
+              <span class="logo-dot"></span>
+            </div>
+      
+            <!-- Text (remove this div if showText = false) -->
+            <div class="logo-text">
+              <span class="logo-title">AI Dashboard</span>
+              <span class="logo-subtitle">Data Visualization</span>
+            </div>
+        </div>
+        <!-- NAV LINKS (Authenticated) -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" data-section="upload" class="nav-item">
+              <i class="bi bi-upload"></i> Upload
+            </a>
+            <a href="#" data-section="table" class="nav-item">
+              <i class="bi bi-table"></i> Table
+            </a>
+            <a href="#" data-section="fulltable" class="nav-item">
+              <i class="bi bi-layout-text-window"></i> Full Table
+            </a>
+            <a href="#" data-section="charts" class="nav-item">
+              <i class="bi bi-bar-chart-line"></i> Charts
+            </a>
+            <a href="#" data-section="custom" class="nav-item">
+              <i class="bi bi-grid"></i> Custom
+            </a>
+            <a href="#" data-section="chatbot" class="nav-item">
+              <i class="bi bi-chat-dots"></i> Chatbot
+            </a>
+        </nav>
+
+        <!-- AUTH AREA -->
+        <div class="user-menu" id="userMenu">
+              <!-- User button -->
+              <button class="user-btn" id="userBtn">
+                <i class="bi bi-person-circle"></i>
+                <span id="userEmailText">user@email.com</span>
+              </button>
+              <button id="profileBtn" onclick="alert('Profile coming soon')">
+                <i class="bi bi-person"></i>
+              </button>
+                <button id="logoutBtn">
+                  <i class="bi bi-box-arrow-right"></i> Logout
+                </button>  
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+          <i class="bi bi-list"></i>
+        </button>
+    
+      </div>
+  </header>
+  <main>
+      <section id="upload" class="section page">
+            <div class="upload-container card">
+              <div class="upload-header">
+                <h1>Upload Your Data</h1>
+                <p>Import a CSV file to get started with AI-powered analysis</p>
+              </div>
+        
+              <div class="upload-card">        
+                <div class="card-header">
+                  <!-- <h2><i class="bi bi-file-earmark-spreadsheet"></i> CSV Upload</h2> -->
+                  <p>Drag and drop your file or click to browse</p>
+                </div>
+        
+                <div class="drop-zone" id="dropZone">
+                  <input type="file" id="fileInput" accept=".csv" hidden />
+        
+                  <div id="idleState">
+                    <i class="bi bi-upload upload-icon"></i>
+                    <p><strong>Drop your CSV file here</strong></p>
+                    <p class="muted">or click to browse</p>
+                  </div>
+        
+                  <div id="loadingState" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Processing file...</p>
+                  </div>
+        
+                  <div id="fileState" class="hidden">
+                    <i class="bi bi-file-earmark-spreadsheet file-icon"></i>
+                    <p id="fileName" class="filename"></p>
+                    <p id="fileSize" class="muted"></p>
+                    <button class="btn" id="removeBtn">
+                      <i class="bi bi-x"></i> Remove
+                    </button>
+                  </div>
+                </div>
+        
+                <div id="dataActions" class="hidden actions">
+                  <div class="data-info">
+                    <p id="dataSummary"></p>
+                    <button class="btn btn-outline" id="downloadBtn">
+                      <i class="bi bi-download"></i> JSON
+                    </button>
+                  </div>
+        
+                  <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="showSection('table')">
+                      View Dashboard <i class="bi bi-arrow-right-short"></i>
+                    </button>
+                    <button class="btn btn-outline" onclick="showSection('charts')">
+                      View Charts
+                    </button>
+                  </div>
+                </div>        
+              </div>
+            </div>
+      </section>
+      <section id="table" class="section page hidden">
+          <!-- EMPTY STATE -->
+        <div class="empty-state center">
+          <div class="card text-center">
+            <i class="bi bi-file-earmark-spreadsheet empty-icon"></i>
+            <h2>No Data Available</h2>
+            <p>Upload a CSV file to view data tables</p>
+            <button class="btn btn-primary" onclick="showSection('upload')">
+              <i class="bi bi-upload"></i> Upload Data
+            </button>
+          </div>
+        </div>
+      
+          <!-- TABLE PAGE -->
+          <div id="pageTable" style="width: 100%;" class="hidden">
+            <div id="dashboardContainer">
+              <!-- Panels injected here by JS -->
+            </div>
+          </div>
+
+      </section>
+      <section id="fulltable" class="section page hidden">
+        <div class="empty-state center">
+          <div class="card text-center">
+            <i class="bi bi-file-earmark-spreadsheet empty-icon"></i>
+            <h2>No Data Available</h2>
+            <p>Upload a CSV file to view full dataset</p>
+            <button class="btn btn-primary" onclick="showSection('upload')">
+              <i class="bi bi-upload"></i> Upload Data
+            </button>
+          </div>
+        </div>
+      
+        <div id="pageFulltable">
+          <!-- RAW TABLE -->
+        <div id="rawTableBlock" class="hidden">
+          <h3>Raw Dataset</h3>
+          <div id="rawTable"></div>
+        </div>
+        <!-- CLEANED TABLE -->
+        <div id="cleanTableBlock" class="hidden">
+          <h3>Cleaned Dataset</h3>
+          <div id="cleanTable"></div>
+        </div>
+        </div>
+        
+      </section>
+
+      <section id="charts" class="section page hidden">
+
+        <div class="empty-state center">
+          <div class="card text-center">
+            <i class="bi bi-file-earmark-spreadsheet empty-icon"></i>
+            <h2>No Data Available</h2>
+            <p>Upload a CSV file to view charts</p>
+            <button class="btn btn-primary" onclick="showSection('upload')">
+              <i class="bi bi-upload"></i> Upload Data
+            </button>
+          </div>
+        </div>
+
+        <!-- REAL CHART CONTAINER -->
+        <div id="pageCharts" class="hidden" style="width: 100%;">
+          <div class="chart-grid"></div>
+        </div>
+
+      </section>
+
+      
+
+      <section id="custom" class="section page hidden">
+        <div class="empty-state center">
+          <div class="card text-center">
+            <i class="bi bi-file-earmark-spreadsheet empty-icon"></i>
+            <h2>No Data Available</h2>
+            <p>Upload a CSV file to view charts</p>
+            <button class="btn btn-primary" onclick="showSection('upload')">
+              <i class="bi bi-upload"></i> Upload Data
+            </button>
+          </div>
+        </div>
+
+        <div id="customPage" class="hidden">
+          <div id="customContainer" class="custom-grid hidden"></div>
+        </div>
+      </section>
+
+      <section id="chatbot" class="section page hidden">
+        <div class="empty-state" class="center">
+          <div class="card text-center">
+            <i class="bi bi-file-earmark-spreadsheet empty-icon"></i>
+            <h2>No Data Available</h2>
+            <p>Upload a CSV file to see your dashboard</p>
+            <button class="btn btn-primary" onclick="showSection('upload')">
+              <i class="bi bi-upload"></i> Upload Data
+            </button>
+          </div>
+        </div>
+
+        <div id="chatarea">
+          <div id="chatMessages"></div>
+        
+          <div class="chat-input">
+            <input id="chatInput" placeholder="Ask about the dataset..." />
+            <button id="chatSend">Send</button>
+          </div>
+        </div>
+        <div id="botpage" class="page">
+          <div id="botResult"></div>
+        </div>
+      </section>
+  </main>
+  <footer class="footer">
+      <div class="container footer-inner">
+        <div class="logo-wrapper">
+            <div class="logo-icon">
+              <!-- Bar chart icon (SVG replacement for lucide-react) -->
+              <svg viewBox="0 0 24 24"fill="none" stroke="white" stroke-width="2"stroke-linecap="round"stroke-linejoin="round"class="logo-svg">
+                <line x1="12" y1="20" x2="12" y2="10"></line>
+                <line x1="18" y1="20" x2="18" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              <!-- Status dot -->
+              <span class="logo-dot"></span>
+            </div>
+      
+            <!-- Text (remove this div if showText = false) -->
+            <div class="logo-text">
+              <span class="logo-title">AI Dashboard</span>
+              <span class="logo-subtitle">Data Visualization</span>
+            </div>
+        </div>
+        <p>© 2024 AI Dashboard. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+  </footer>
+ 
+  <!-- Upgrade Modal -->
+<div id="upgradeModal" class="modal hidden">
+  <div class="modal-box">
+    <h2>Upgrade Required</h2>
+    <p>You’ve used your free upload. Please login to upload again.</p>
+
+    <div class="modal-actions">
+      <button onclick="goLogin()">Login</button>
+      <button onclick="goSignup()">Sign Up</button>
+      <button onclick="closeUpgradeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script src="/static/js/app.js"></script>
+<script src="/static/js/upload.js"></script>
+
+<script src="/static/js/navbar-auth.js"></script>
+<script src="/static/js/table.js"></script>
+<script src="/static/js/columndetector.js"></script>
+<script src="/static/js/keywords.js"></script>
+<script src="/static/js/charts.js"></script>
+<script src="/static/js/custom.js"></script>
+
+<script src="/static/js/chatbot.js"></script>
+<script src="/static/js/chatbot.train.js"></script>
+
+<script src="/static/js/fulltable.js"></script>
+
+<script src="/static/js/main.js"></script>
+<script src="/static/js/hotcss.js"></script>
+<script>
+  hotcss.start({ interval: 2000 });
+</script>
+
+
+
+<!-- <section id="upload" class="section page">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section>
+<section id="table" class="section page hidden">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section>
+<section id="fulltable" class="section page hidden">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section>
+<section id="charts" class="section page hidden">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section>
+<section id="custom" class="section page hidden">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section>
+<section id="chatbot" class="section page hidden">
+  <div class="empty-state center">
+    <div class="card text-center">...</div>
+  </div>
+</section> -->
+
+</body>
+</html>

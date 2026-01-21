@@ -1,0 +1,163 @@
+/* ================= TABLES STYLES ================= */
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+}
+
+/* Empty */
+.empty-icon {
+  font-size: 48px;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.stat {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.stat small {
+  color: #64748b;
+}
+
+/* ================= ROOT ================= */
+:root {
+  font-family: Inter, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --bg: #f7feff;
+  --panel-bg: #ffffff;
+  --muted: #666;
+  --border: #e6e6e6;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ================= PAGE LAYOUT ================= */
+
+
+
+/* ================= PAGE ================= */
+
+
+/* ================= DASHBOARD ROOT ================= */
+#dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ================= PANEL ================= */
+.panel {
+  background: var(--panel-bg);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: auto;
+}
+
+/* ================= SMALL TEXT ================= */
+.small {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ================= STAT BOX ================= */
+.stat-box {
+  display: inline-block;
+  padding: 10px 12px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* ================= TABLE ================= */
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.simple-table th,
+.simple-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ececec;
+  font-size: 13px;
+  color: #333;
+}
+
+.simple-table thead th {
+  background: #ececec;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* ================= TABLE HOVER ================= */
+.simple-table tbody tr:hover td {
+  background: rgba(215, 246, 255, 0.25);
+}
+
+/* ================= EMPTY CELL ================= */
+.td-empty {
+  background: #ffdddd;
+  color: #8b0000;
+  font-weight: 600;
+}
+
+/* ================= BUCKET GRID ================= */
+.bucket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ================= METRIC TABLE ================= */
+.metric-table {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .bucket-grid {
+    grid-template-columns: 1fr;
+  }
+}

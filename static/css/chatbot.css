@@ -1,0 +1,81 @@
+/* =========================
+   CHAT MESSAGES AREA
+========================= */
+#chatMessages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* =========================
+     MESSAGE BUBBLES
+  ========================= */
+  #chatMessages .user {
+    align-self: flex-start;
+    background: #6b9aff;
+    color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 10px 10px 10px 0px;
+    margin-bottom: 8px;
+    width: fit-content;
+    font-size: 13px;
+  }
+  
+  #chatMessages .bot {
+    align-self: flex-end;
+    background: #e5e7eb;
+    color: #111827;
+    padding: 8px 10px;
+    border-radius: 10px 10px 0px 10px;
+    margin-bottom: 8px;
+    width: fit-content;
+    font-size: 13px;
+  }
+  
+  /* =========================
+     INPUT AREA
+  ========================= */
+  .chat-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex-direction: row;
+    gap: 5px;
+    padding: 8px;
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+  }
+  
+  #chatInput {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+    outline: none;
+  }
+  
+  #chatInput:focus {
+    border-color: #2563eb;
+  }
+  
+  /* =========================
+     SEND BUTTON
+  ========================= */
+  #chatSend {
+    padding: 8px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  #chatSend:hover {
+    background: #1d4ed8;
+  }

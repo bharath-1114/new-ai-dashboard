@@ -1,0 +1,104 @@
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.upload-header {
+  width: 100%;
+  text-align: center;
+}
+.upload-header p {
+  color: #64748b;
+}
+.upload-card{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.card-header p {
+  color: #64748b;
+  /* margin-top: 6px; */
+}
+
+/* Drop Zone */
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 60px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.drop-zone.active {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.upload-icon {
+  font-size: 40px;
+  color: #64748b;
+}
+
+.file-icon {
+  font-size: 48px;
+  color: #2563eb;
+}
+.filename {
+  font-size: clamp(12px, 1.2vw, 14px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #2563eb;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.muted {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.actions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.data-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 10px;
+}
+.action-buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}

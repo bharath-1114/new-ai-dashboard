@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">  
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  
+  <div class="container nav-inner">
+    <!-- LOGO COMPONENT -->
+    <div class="logo-wrapper">
+      <div class="logo-icon">
+        <!-- Bar chart icon (SVG replacement for lucide-react) -->
+        <svg viewBox="0 0 24 24"fill="none" stroke="white" stroke-width="2"stroke-linecap="round"stroke-linejoin="round"class="logo-svg">
+          <line x1="12" y1="20" x2="12" y2="10"></line>
+          <line x1="18" y1="20" x2="18" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <!-- Status dot -->
+        <span class="logo-dot"></span>
+      </div>
+
+      <!-- Text (remove this div if showText = false) -->
+      <div class="logo-text">
+        <span class="logo-title">AI Dashboard</span>
+        <span class="logo-subtitle">Data Visualization</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn outline" onclick="goToLogin()">Login</button>
+      <button class="btn primary" onclick="goToSignup()">Sign Up</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <span class="badge">⚡ AI-Powered Analytics</span>
+
+    <h1>
+      <span class="hero-line">Transform Your Data Into</span>
+      <span class="gradient-text">Actionable Insights</span>
+    </h1>
+    
+
+    <p>
+      Upload your datasets, visualize trends, and get AI-powered analysis
+      in seconds. No technical expertise required.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn primary large" onclick="goToUpload()">Get Started Free <i class="bi bi-arrow-right-short large-arrow"></i></button>
+      
+      <button class="btn outline large">Watch Demo</button>
+    </div>
+
+    <div class="benefits">
+      <span><i class="bi bi-check2-circle"></i> No coding required</span>
+      <span><i class="bi bi-check2-circle"></i> Real-time analysis</span>
+      <span><i class="bi bi-check2-circle"></i> Secure data handling</span>
+      <span><i class="bi bi-check2-circle"></i> Export anywhere</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <h2>Everything you need for data analysis</h2>
+    <p class="subtext">Powerful features designed for beginners and professionals</p>
+
+    <div class="feature-grid">
+      <div class="card">
+        <i class="bi bi-upload"></i>
+        <h3>Easy Data Upload</h3>
+        <p>Drag & drop CSV files for instant analysis</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-bar-chart-line-fill chart-icon"></i>
+        <h3>Smart Visualizations</h3>
+        <p>Auto-generate charts from your data</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-table"></i>
+        <h3>Interactive Tables</h3>
+        <p>Sort, filter, and explore datasets</p>
+      </div>
+      <div class="card">
+        <i class="bi bi-chat-right-heart-fill"></i>
+        <h3>AI-Powered Insights</h3>
+        <p>Ask questions in natural language</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div>
+      <h3>10K+</h3>
+      <p>Datasets Analyzed</p>
+    </div>
+    <div>
+      <h3>50M+</h3>
+      <p>Data Points Processed</p>
+    </div>
+    <div>
+      <h3>99.9%</h3>
+      <p>Uptime Guaranteed</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container cta-box">
+    <h1>Ready to unlock your data's potential?</h1>
+    <p>Start analyzing your data in minutes. No credit card required.</p>
+    <button class="btn white large" onclick="goToUpload()">Start Free Trial <i class="bi bi-arrow-right-short large-arrow"></i></button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logo-wrapper">
+      <div class="logo-icon">
+        <!-- Bar chart icon (SVG replacement for lucide-react) -->
+        <svg viewBox="0 0 24 24"fill="none" stroke="white" stroke-width="2"stroke-linecap="round"stroke-linejoin="round"class="logo-svg">
+          <line x1="12" y1="20" x2="12" y2="10"></line>
+          <line x1="18" y1="20" x2="18" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <!-- Status dot -->
+        <span class="logo-dot"></span>
+      </div>
+
+      <!-- Text (remove this div if showText = false) -->
+      <div class="logo-text">
+        <span class="logo-title">AI Dashboard</span>
+        <span class="logo-subtitle">Data Visualization</span>
+      </div>
+    </div>
+    <p>© 2024 AI Dashboard. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/js/hotcss.js"></script>
+<script>
+  hotcss.startAutoReload({
+    cssPath: "js/app.css",
+    interval: 2000
+  });
+
+</script>
+
+<script>
+ function goToUpload() {
+  // Create temporary guest user
+  localStorage.setItem(
+    "authUser",
+    JSON.stringify({
+      email: "guest@aidashboard.com",
+      provider: "guest"
+    })
+  );
+  window.location.href = "dashboard.html#upload";
+}
+  function goToLogin() { window.location.href = "/auth.html?mode=login"; }
+  function goToSignup() { window.location.href = "/auth.html?mode=signup";}
+
+
+</script>
+
+</body>
+</html>

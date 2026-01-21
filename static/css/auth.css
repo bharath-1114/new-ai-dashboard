@@ -1,0 +1,245 @@
+/* =========================
+   GLOBAL
+========================= */
+:root {
+  --primary: #348cf0;
+  --secondary: #06b6d4;
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+} */
+/* LOGO WRAPPER */
+.logo-wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ICON BOX */
+.logo-icon {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+}
+
+/* SVG ICON */
+.logo-svg {
+  height: 20px;
+  width: 20px;
+}
+
+/* STATUS DOT */
+.logo-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  height: 10px;
+  width: 10px;
+  background: var(--secondary);
+  border-radius: 50%;
+  border: 2px solid var(--card);
+}
+
+/* TEXT */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo-subtitle {
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================
+   AUTH PAGE LAYOUT
+========================= */
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb22, #06b6d422);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  gap: 12px;
+}
+
+/* wrapper for heading + form */
+.sec-box {
+  width: 100%;
+  max-width: 480px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================
+   TEXT
+========================= */
+.sec-box h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sec-box p {
+  font-size: 14px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* =========================
+   FORM
+========================= */
+.auth-form {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   INPUT FIELDS
+========================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+/* password icon */
+.password-box {
+  position: relative;
+}
+
+.password-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #64748b;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+
+/* =========================
+   SWITCH LOGIN / SIGNUP
+========================= */
+.switch-text {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.switch-text button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.switch-text button:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   BACK LINK / PRIVACY
+========================= */
+.back-link,
+.Privacy {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  text-decoration: none;
+}
+
+/* =========================
+   UTIL
+========================= */
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px) {
+  .sec-box {
+    max-width: 100%;
+  }
+
+  .auth-form {
+    padding: 16px;
+  }
+}

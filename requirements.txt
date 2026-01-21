@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+numpy
+matplotlib
+python-multipart
+python-dotenv
+rich
+starlette
+python-dateutil
+openai

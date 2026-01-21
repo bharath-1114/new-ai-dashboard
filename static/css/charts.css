@@ -1,0 +1,35 @@
+/* ================= CHARTS STYLES ================= */
+
+/* Charts layout */
+.chart-grid {
+  /* min-height: 600px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Individual chart panels */
+
+.chartpanel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 14px 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+/* Canvas wrapper */
+.chart-wrap {
+  position: relative;
+  height: 240px;
+  width: 100%;
+}
+
+.chart-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
