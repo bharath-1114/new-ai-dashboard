@@ -1,21 +1,69 @@
-studentid,name,age,gender,class,section,math,science,english,attendance(%),email
-01,Aarav,15,Male,10,A,78,80,75,92%,aarav@gmail.com
-02,Diya,14,Female,10,A,85,82,88,95%,diya@gmail.com
-03,Rohan,15,Male,10,B,69,71,70,88%,rohan@gmail.com
-04,Priya,16,Female,10,A,90,88,92,97%,priya@gmail.com
-05,Kunal,14,Male,10,B,72,74,73,90%,kunal@gmail.com
-06,Neha,15,Female,10,A,88,90,85,96%,neha@gmail.com
-07,Arjun,16,Male,10,B,91,93,90,98%,arjun@gmail.com
-08,Ananya,15,Female,10,A,84,85,86,94%,ananya@gmail.com
-09,Vikram,14,Male,10,B,67,69,68,87%,vikram@gmail.com
-10,Pooja,16,Female,10,A,79,77,80,91%,pooja@gmail.com
-11,Rahul,15,Male,10,B,73,76,74,89%,rahul@gmail.com
-12,Sneha,14,Female,10,A,86,84,87,93%,sneha@gmail.com
-13,Amit,16,Male,10,B,92,91,89,97%,amit@gmail.com
-14,Kavya,15,Female,10,A,81,83,82,92%,kavya@gmail.com
-15,Sanjay,14,Male,10,B,70,72,71,88%,sanjay@gmail.com
-16,Meera,16,Female,10,A,89,88,88,96%,meera@gmail.com
-17,Nikhil,15,Male,10,B,75,78,76,90%,nikhil@gmail.com
-18,Isha,14,Female,10,A,83,86,84,94%,isha@gmail.com
-19,Manoj,16,Male,10,B,68,70,69,86%,manoj@gmail.com
-20,Ritika,15,Female,10,A,87,89,90,95%,ritika@gmail.com
+student_id,name,class,section,gender,dob,age,subject,marks,total_marks,percentage,attendance,result,fee_status,scholarship,admission_year,email
+STU001,Rahul Kumar,12,C,Female,2020-04-09,17,Maths,3%,100%,3%,82.0%,Fail,Paid,Yes,2022,rahulkumar@gmail.com
+STU002,Amit Rao,12,B,Female,2024-07-18,16,History,28%,100%,28%,79.0%,Fail,Pending,Yes,2021,amitrao@gmail.com
+STU003,Anita Kumar,12,B,Female,2025-11-03,17,English,59%,100%,59%,83.0%,Pass,Pending,Yes,2023,anitakumar@gmail.com
+STU004,Anita Verma,9,A,Male,2021-06-20,18,English,62%,100%,62%,77.0%,Pass,Paid,No,2023,anitaverma@gmail.com
+STU005,Vikram Singh,12,C,Male,2020-08-01,14,History,33%,100%,33%,99.0%,Fail,Paid,Yes,2023,vikramsingh@gmail.com
+STU006,Kiran Sharma,10,B,Male,2023-03-13,18,Geography,73%,100%,73%,96.0%,Pass,Paid,Yes,2024,kiransharma@gmail.com
+STU007,Amit Roy,9,B,Female,2021-03-23,14,Science,9%,100%,9%,92.0%,Fail,Pending,No,2023,amitroy@gmail.com
+STU008,John Verma,11,C,Male,2020-07-07,14,History,60%,100%,60%,88.0%,Pass,Paid,Yes,2022,johnverma@gmail.com
+STU009,Rahul Naidu,11,C,Female,2023-12-05,18,Geography,54%,100%,54%,77.0%,Pass,Pending,Yes,2021,rahulnaidu@gmail.com
+STU010,Rahul Sharma,9,A,Female,2024-07-06,17,Maths,58%,100%,58%,72.0%,Pass,Paid,Yes,2024,rahulsharma@gmail.com
+STU011,Vikram Peter,11,B,Female,2021-03-04,14,English,10%,100%,10%,96.0%,Fail,Pending,Yes,2022,vikrampeter@gmail.com
+STU012,John Rao,12,A,Female,2025-05-21,18,Science,64%,100%,64%,95.0%,Pass,Paid,No,2023,johnrao@gmail.com
+STU013,Kiran Rao,12,B,Male,2024-12-21,17,History,48%,100%,48%,98.0%,Pass,Paid,No,2024,kiranrao@gmail.com
+STU014,Kiran Kumar,12,C,Female,2020-03-04,17,English,67%,100%,67%,71.0%,Pass,Paid,Yes,2021,kirankumar@gmail.com
+STU015,Meera Patel,10,B,Female,2025-11-02,14,History,23%,100%,23%,70.0%,Fail,Paid,Yes,2022,meerapatel@gmail.com
+STU016,Vikram Das,9,B,Male,2024-04-08,16,Geography,1%,100%,1%,80.0%,Fail,Pending,No,2021,vikramdas@gmail.com
+STU017,Anita Rao,12,B,Female,2022-04-05,17,Geography,12%,100%,12%,95.0%,Fail,Paid,No,2021,anitarao@gmail.com
+STU019,Rahul Singh,10,A,Male,2025-07-14,16,Geography,67%,100%,67%,72.0%,Pass,Pending,Yes,2022,rahulsingh@gmail.com
+STU020,Arjun Singh,12,A,Male,2024-01-10,17,English,36%,100%,36%,72.0%,Pass,Pending,Yes,2024,arjunsingh@gmail.com
+STU021,John Roy,12,B,Male,2021-11-09,16,History,24%,100%,24%,71.0%,Fail,Pending,No,2022,johnroy@gmail.com
+STU022,Sneha Verma,10,A,Female,2020-08-14,15,English,43%,100%,43%,81.0%,Pass,Paid,No,2021,snehaverma@gmail.com
+STU023,Meera Rao,12,A,Female,2020-01-05,16,English,84%,100%,84%,86.0%,Pass,Pending,Yes,2022,meerarao@gmail.com
+STU024,Amit Naidu,9,C,Female,2021-07-04,15,Science,0%,100%,0%,83.0%,Fail,Paid,No,2021,amitnaidu@gmail.com
+STU026,Meera Roy,11,B,Male,2020-03-21,14,Geography,55%,100%,55%,97.0%,Pass,Paid,No,2021,meeraroy@gmail.com
+STU028,John Sharma,9,A,Male,2024-05-14,17,Geography,26%,100%,26%,99.0%,Fail,Pending,No,2024,johnsharma@gmail.com
+STU029,Arjun Peter,11,B,Female,2025-03-17,17,English,76%,100%,76%,71.0%,Pass,Pending,Yes,2022,arjunpeter@gmail.com
+STU030,Kiran Singh,10,B,Male,2025-12-28,14,Geography,72%,100%,72%,99.0%,Pass,Paid,No,2021,kiransingh@gmail.com
+STU031,Arjun Rao,12,B,Female,2023-11-28,14,Science,98%,100%,98%,82.0%,Pass,Pending,No,2023,arjunrao@gmail.com
+STU032,John Naidu,11,C,Female,2021-01-26,16,English,16%,100%,16%,100.0%,Fail,Paid,Yes,2021,johnnaidu@gmail.com
+STU034,Vikram Verma,10,B,Male,2024-04-04,18,History,84%,100%,84%,75.0%,Pass,Pending,No,2024,vikramverma@gmail.com
+STU035,Kiran Naidu,12,A,Female,2020-03-10,15,Geography,9%,100%,9%,88.0%,Fail,Pending,No,2023,kirannaidu@gmail.com
+STU037,Sara Roy,9,C,Female,2021-04-07,14,Geography,61%,100%,61%,100.0%,Pass,Paid,Yes,2022,sararoy@gmail.com
+STU039,Sara Kumar,9,B,Female,2022-04-20,15,Geography,26%,100%,26%,93.0%,Fail,Pending,Yes,2022,sarakumar@gmail.com
+STU040,Sneha Singh,9,B,Female,2025-03-17,16,English,61%,100%,61%,70.0%,Pass,Paid,No,2023,snehasingh@gmail.com
+STU041,John Kumar,9,C,Male,2023-08-20,17,English,39%,100%,39%,79.0%,Pass,Pending,Yes,2021,johnkumar@gmail.com
+STU042,John Das,9,A,Female,2021-05-27,16,History,77%,100%,77%,84.0%,Pass,Paid,Yes,2023,johndas@gmail.com
+STU043,Kiran Peter,9,C,Male,2022-12-03,16,History,100%,100%,100%,72.0%,Pass,Pending,Yes,2021,kiranpeter@gmail.com
+STU044,Arjun Kumar,10,C,Male,2020-03-25,18,History,25%,100%,25%,85.0%,Fail,Pending,No,2022,arjunkumar@gmail.com
+STU045,Anita Singh,12,B,Female,2024-06-05,15,History,20%,100%,20%,96.0%,Fail,Pending,No,2024,anitasingh@gmail.com
+STU046,Sara Singh,9,B,Male,2022-06-06,16,Geography,86%,100%,86%,71.0%,Pass,Paid,Yes,2024,sarasingh@gmail.com
+STU047,Kiran Verma,12,C,Female,2025-11-26,15,English,95%,100%,95%,83.0%,Pass,Paid,No,2022,kiranverma@gmail.com
+STU048,Arjun Patel,12,C,Male,2022-08-08,18,History,7%,100%,7%,81.0%,Fail,Paid,No,2022,arjunpatel@gmail.com
+STU049,Sneha Das,11,B,Female,2023-10-25,15,Maths,78%,100%,78%,72.0%,Pass,Paid,Yes,2021,snehadas@gmail.com
+STU050,Sneha Patel,9,B,Male,2020-10-10,15,Science,82%,100%,82%,71.0%,Pass,Paid,No,2024,snehapatel@gmail.com
+STU053,Sneha Rao,11,C,Male,2020-02-10,17,Science,38%,100%,38%,92.0%,Pass,Paid,Yes,2021,sneharao@gmail.com
+STU054,Sneha Peter,12,A,Male,2025-07-07,14,Maths,10%,100%,10%,95.0%,Fail,Paid,No,2024,snehapeter@gmail.com
+STU056,Meera Das,10,B,Female,2024-11-07,16,History,10%,100%,10%,94.0%,Fail,Pending,Yes,2021,meeradas@gmail.com
+STU057,Meera Naidu,9,B,Female,2022-08-02,15,History,73%,100%,73%,98.0%,Pass,Paid,No,2024,meeranaidu@gmail.com
+STU058,Kiran Das,12,A,Female,2025-12-04,18,Science,91%,100%,91%,71.0%,Pass,Paid,No,2023,kirandas@gmail.com
+STU059,John Patel,11,B,Female,2025-05-10,15,Maths,92%,100%,92%,87.0%,Pass,Pending,No,2022,johnpatel@gmail.com
+STU060,Arjun Das,10,B,Female,2020-06-14,15,Geography,17%,100%,17%,88.0%,Fail,Paid,No,2024,arjundas@gmail.com
+STU061,Meera Kumar,9,A,Female,2021-02-27,16,Science,93%,100%,93%,80.0%,Pass,Pending,No,2023,meerakumar@gmail.com
+STU064,Sara Patel,11,C,Male,2020-10-03,17,Science,100%,100%,100%,84.0%,Pass,Pending,Yes,2023,sarapatel@gmail.com
+STU065,Rahul Roy,11,A,Female,2021-09-03,17,Geography,58%,100%,58%,77.0%,Pass,Pending,No,2023,rahulroy@gmail.com
+STU068,Arjun Naidu,10,B,Male,2022-05-08,17,Maths,31%,100%,31%,93.0%,Fail,Pending,No,2021,arjunnaidu@gmail.com
+STU073,Vikram Roy,10,B,Male,2020-11-03,18,Science,84%,100%,84%,92.0%,Pass,Pending,No,2021,vikramroy@gmail.com
+STU074,Sara Peter,11,B,Male,2023-01-06,15,Maths,47%,100%,47%,74.0%,Pass,Pending,Yes,2022,sarapeter@gmail.com
+STU075,Meera Verma,12,C,Male,2023-01-02,14,History,41%,100%,41%,89.0%,Pass,Pending,No,2024,meeraverma@gmail.com
+STU076,Sara Verma,12,B,Male,2020-05-23,15,History,63%,100%,63%,76.0%,Pass,Pending,Yes,2023,saraverma@gmail.com
+STU078,Amit Kumar,9,B,Male,2020-03-27,16,Geography,93%,100%,93%,94.0%,Pass,Paid,Yes,2021,amitkumar@gmail.com
+STU080,Anita Das,12,C,Female,2025-08-17,16,Geography,4%,100%,4%,70.0%,Fail,Paid,No,2022,anitadas@gmail.com
+STU083,Kiran Patel,10,A,Male,2025-10-22,14,Maths,75%,100%,75%,99.0%,Pass,Paid,Yes,2024,kiranpatel@gmail.com
+STU084,Sara Das,10,B,Female,2025-10-23,17,Maths,36%,100%,36%,77.0%,Pass,Pending,Yes,2021,saradas@gmail.com
+STU086,Rahul Peter,12,A,Male,2021-06-07,14,Maths,43%,100%,43%,89.0%,Pass,Paid,No,2023,rahulpeter@gmail.com
+STU089,Arjun Sharma,11,B,Female,2021-06-18,17,Maths,14%,100%,14%,84.0%,Fail,Paid,No,2024,arjunsharma@gmail.com
+STU095,Sneha Roy,9,C,Male,2023-09-23,17,Geography,37%,100%,37%,96.0%,Pass,Pending,No,2022,sneharoy@gmail.com
+STU097,Vikram Naidu,11,C,Female,2021-02-04,17,Geography,23%,100%,23%,94.0%,Fail,Pending,No,2022,vikramnaidu@gmail.com
+STU099,Meera Peter,10,A,Female,2023-12-12,17,Geography,43%,100%,43%,90.0%,Pass,Pending,Yes,2024,meerapeter@gmail.com

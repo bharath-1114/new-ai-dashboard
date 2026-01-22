@@ -1,39 +1,21 @@
 let pageCount = 0;
-let currentPageCanvas = null;
 let activePage = null;
 
-document.addEventListener("click", e => {
-  const page = e.target.closest(".a4-page");
-  if (!page) return;
-
-  document.querySelectorAll(".a4-page").forEach(p => {
-    p.classList.remove("active-print-page");
-  });
-
-  page.classList.add("active-print-page");
-  activePage = page;
-});
-
-
-/* CREATE A4 PAGE */
+/* ======================
+   CREATE A4 PAGE
+====================== */
 function createA4Page() {
-  pageCount++;
-
   const page = document.createElement("div");
   page.className = "a4-page";
-  page.dataset.page = pageCount;
 
   const header = document.createElement("div");
   header.className = "a4-header";
-  header.innerText = `Custom Dashboard – Page ${pageCount}`;
 
   const canvas = document.createElement("div");
   canvas.className = "a4-canvas";
-  canvas.id = `a4Canvas-${pageCount}`;
 
   const footer = document.createElement("div");
   footer.className = "a4-footer";
-  footer.innerText = `Page ${pageCount}`;
 
   page.appendChild(header);
   page.appendChild(canvas);
@@ -41,23 +23,117 @@ function createA4Page() {
 
   document.getElementById("customContainer").appendChild(page);
 
+  // 🔑 FIX: set active canvas
   currentPageCanvas = canvas;
+
+  updatePageNumbers();
+  setActivePage(page);
+
   return canvas;
 }
 
-/* INIT FIRST PAGE */
+
+/* ======================
+   ACTIVE PAGE
+====================== */
+function setActivePage(page) {
+  document.querySelectorAll(".a4-page").forEach(p =>
+    p.classList.remove("active-print-page")
+  );
+  page.classList.add("active-print-page");
+  activePage = page;
+}
+
+/* Click page to activate */
+document.addEventListener("click", e => {
+  const page = e.target.closest(".a4-page");
+  if (page) setActivePage(page);
+});
+
+/* ======================
+   ADD PAGE BUTTON
+====================== */
 document.getElementById("addPageBtn").addEventListener("click", () => {
   createA4Page();
 });
+
+/* ======================
+   DELETE ACTIVE PAGE
+====================== */
+document.getElementById("deletePageBtn").addEventListener("click", () => {
+  const pages = document.querySelectorAll(".a4-page");
+
+  if (pages.length === 1) {
+    alert("At least one page must exist.");
+    return;
+  }
+
+  if (activePage) {
+    activePage.remove();
+    activePage = null;
+  } else {
+    pages[pages.length - 1].remove();
+  }
+
+  updatePageNumbers();
+
+  const remainingPages = document.querySelectorAll(".a4-page");
+  if (remainingPages.length) {
+    setActivePage(remainingPages[remainingPages.length - 1]);
+  }
+});
+
+/* ======================
+   PAGE NUMBERS
+====================== */
+function updatePageNumbers() {
+  const pages = document.querySelectorAll(".a4-page");
+
+  pages.forEach((page, index) => {
+    page.querySelector(".a4-header").textContent =
+      `Custom Dashboard – Page ${index + 1}`;
+    page.querySelector(".a4-footer").textContent =
+      `Page ${index + 1}`;
+  });
+
+  pageCount = pages.length;
+}
+
+/* ======================
+   PRINT
+====================== */
+function printPages() {
+  prepareChartsForPrint();
+
+  // allow browser to repaint tables & charts
+  setTimeout(() => {
+    window.print();
+  }, 300);
+}
+
+
+/* ======================
+   INIT
+====================== */
+document.addEventListener("DOMContentLoaded", () => {
+  createA4Page(); // always start with one page
+});
+
 
 
 function addCardToCustom(card) {
   card.classList.add("custom-card");
 
+  // screen layout
+  card.style.position = "absolute";
   card.style.left = "10px";
   card.style.top = "10px";
   card.style.width = "300px";
   card.style.height = "200px";
+
+  if (!currentPageCanvas) {
+    createA4Page();
+  }
 
   currentPageCanvas.appendChild(card);
 
@@ -150,27 +226,17 @@ function enableResize(card) {
   });
 }
 
-function printAllPages() {
-  // make sure all pages are visible
-  document.querySelectorAll(".a4-page").forEach(p => {
-    p.style.display = "block";
-  });
+function prepareChartsForPrint() {
+  if (!window.Chart) return;
 
-  window.print();
-}
-
-
-function printCurrentPage() {
-  document.querySelectorAll(".a4-page").forEach(p => {
-    p.style.display = p === activePage ? "block" : "none";
-  });
-
-  window.print();
-
-  // restore pages after print
-  document.querySelectorAll(".a4-page").forEach(p => {
-    p.style.display = "block";
+  Object.values(Chart.instances).forEach(chart => {
+    chart.resize();
+    chart.update("none");
   });
 }
+
+window.addEventListener("beforeprint", prepareChartsForPrint);
+
+
 
 

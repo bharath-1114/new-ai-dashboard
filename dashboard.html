@@ -225,18 +225,14 @@
             </button>
           </div>
         </div>
-
-        <!-- CUSTOM PAGE -->
-        <div id="customPage" class="hidden">
-
+        <div class="pagecustom">
           <!-- A4 Pages Wrapper -->
           <div id="customContainer" class="a4-wrapper"></div>
-
           <!-- Controls -->
-          <div class="page-controls">
+          <div class="page-controls no-print">
             <button id="addPageBtn" class="btn btn-primary">➕ Add A4 Page</button>
-            <button onclick="printAllPages()" class="btn btn-secondary">🖨️ Print All</button>
-            <button onclick="printCurrentPage()" class="btn btn-secondary">🧾 Print Current Page</button>
+            <button id="deletePageBtn" class="btn remove-btn">✖ Delete Page</button>
+            <button onclick="printPages()" class="btn">🖨️ Print</button>
           </div>
 
         </div>

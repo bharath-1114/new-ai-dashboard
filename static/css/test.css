@@ -1,87 +1,22 @@
 /* =========================================================
    CUSTOM PAGE
 ========================================================= */
-/* Base panel */
-.panel {
-    position: relative;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 14px;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
+
+#customContainer {
+  position: relative;
+  min-height: 80vh;
+  min-width: 80vw;
+  overflow: visible;
+}
+ 
+
   
-  /* Clickable panel (no text, no badge) */
-  .panel.clickable:hover {
-    background-color: #4294e6;
-  }
+
   
-  /* Selected feedback */
-  .panel.selected {
-    background-color: #2188fd;        /* soft blue */
-    border-color: #3b82f6;            /* blue accent */
-    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
-  }
-  /* Remove button (only in custom page) */
-  .custom-grid .remove-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-    color: #6b7280;
-  }
   
-  .custom-grid .remove-btn:hover {
-    color: #ef4444;
-  }
+
   
-  /* Custom page layout */
-  .custom-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 18px;
-  }
-  /* .custom-grid .panel {
-    background-color: #2d88e2;
-  } */
   
-  .chartpanel {
-    /* background: #ffffff; */
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 14px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-  }
-  
-  .chartpanel.selected {
-    background-color: #eef5ff;
-    border-color: #2563eb;
-  }
-  .chartpanel {
-    position: relative; /* REQUIRED */
-  }
-  
-  .chartpanel .remove-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-    color: #6b7280;
-    z-index: 10;
-  }
-  
-  .chartpanel .remove-btn:hover {
-    color: #ef4444;
-  }
   /* remove button visible only in custom page */
   #customContainer .remove-btn {
     border: none;
@@ -96,124 +31,54 @@
     color: #ef4444;
   }
   /* Custom page becomes a drawing canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    /* background: #f9fafb; */
-  }
-  
-  .custom-card {
-    position: absolute;
-    cursor: grab;
-    user-select: none;
-  }
+
+  .chartpanel .remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background-color: #000000;
+  /* background: transparent; */
+  font-size: 14px;
+  cursor: pointer;
+  color: #294d96;
+  z-index: 10;
+}
+
+.chartpanel .remove-btn:hover {
+  color: #ef4444;
+}
+
   /* Custom canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    /* background: #ecf2f7; */
-    overflow: visible; /* 🔑 allow free expansion */
-  }
+
   
   /* Custom cards */
-  .custom-card {
-    position: absolute;
-    overflow: visible;   /* 🔑 remove clipping */
-    max-width: none;     /* 🔑 no constraint */
-    max-height: none;
-  }
+
   
-  .custom-card.dragging {
-    cursor: grabbing;
-    opacity: 0.85;
-    z-index: 9999;
-  }
-  .custom-card {
-    font-size: 14px; /* default */
-  }
+
   
   /* user can override via UI later */
   
   /* resize handle */
-  .custom-card .resize-handle {
-    position: absolute;
-    right: 6px;
-    bottom: 6px;
-    width: 14px;
-    height: 14px;
-    /* cursor: nwse-resize; */
-    background: rgba(0,0,0,0.3);
-    border-radius: 3px;
-  }
-  .simple-table {
-    width: 100%;
-    table-layout: auto; /* 🔑 allows text growth */
-  }
+
   
-  .simple-table td,
-  .simple-table th {
-    white-space: normal; /* 🔑 allow wrapping */
-    word-break: break-word;
-  }
-  /* Custom table card */
-  .custom-card.table-card {
-    height: auto;
-    max-height: none;
-  }
+
+
   
-  /* Table itself */
-  .custom-card.table-card table {
-    width: 100%;
-    table-layout: fixed;
-  }
   
-  /* Prevent overflow */
-  .custom-card.table-card {
-    overflow: hidden;
-  }
-  /* Chart card */
-  .custom-card.chart-card {
-    height: 320px;          /* 🔑 fixed height */
-    min-height: 320px;
-    max-height: 320px;
-  }
-  
-  /* Chart canvas fills width only */
-  .custom-card.chart-card canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  
-  .custom-card.table-card {
-    overflow: hidden;      /* no scroll */
-  }
-  
-  .custom-card.table-card table {
-    width: 100%;
-    table-layout: fixed;
-  }
-  
-  .custom-card.table-card .resize-handle {
-    cursor: ew-resize;     /* width only */
-  }
   /* Canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    overflow: visible;
-  }
+ 
   
-  /* Movable + resizable cards */
+  /* Movable + resizable cards
   .custom-card {
     position: absolute;
     overflow: visible;
     max-width: none;
     max-height: none;
-    min-width: 40px;     /* allow VERY small */
-    min-height: 30px;    /* allow VERY small */
+    min-width: 40px;     
+    min-height: 30px;  
   }
   
-  /* Resize handle */
   .custom-card .resize-handle {
     position: absolute;
     right: 4px;
@@ -223,5 +88,11 @@
     cursor: nwse-resize;
     background: rgba(0,0,0,0.35);
     border-radius: 2px;
-  }
+  } */
   
+
+
+
+
+
+

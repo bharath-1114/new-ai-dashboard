@@ -1,249 +1,32 @@
-/* =========================================================
-   CUSTOM PAGE
-========================================================= */
-#customContainer{
-  /* background-color: #2188fd; */
-  height: 100%;
-    width: 100%;
+.pagecustom{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-width: 100%;
+  /* background-color: rgb(240, 240, 240); */
 }
-/* Base panel */
-.panel {
-    position: relative;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 14px;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  
-  /* Clickable panel (no text, no badge) */
-  .panel.clickable:hover {
-    background-color: #4294e6;
-  }
-  
-  /* Selected feedback */
-  .panel.selected {
-    background-color: #2188fd;        /* soft blue */
-    border-color: #3b82f6;            /* blue accent */
-    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
-  }
-  /* Remove button (only in custom page) */
-  .custom-grid .remove-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-    color: #6b7280;
-  }
-  
-  .custom-grid .remove-btn:hover {
-    color: #ef4444;
-  }
-  
-  /* Custom page layout */
-  .custom-grid {
-    height: 100vh;
-    width: 100%;
-    background-color: #6b7280;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 18px;
-  }
-  .custom-grid .panel {
-    background-color: #c4350a;
-  }
-  
-  .chartpanel {
-    /* background: #ffffff; */
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 14px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-  }
-  
-  .chartpanel.selected {
-    background-color: #eef5ff;
-    border-color: #2563eb;
-  }
-  .chartpanel {
-    position: relative; /* REQUIRED */
-  }
-  
-  .chartpanel .remove-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-    color: #6b7280;
-    z-index: 10;
-  }
-  
-  .chartpanel .remove-btn:hover {
-    color: #ef4444;
-  }
-  /* remove button visible only in custom page */
-  #customContainer .remove-btn {
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-    color: #6b7280;
-    margin-left: 8px;
-  }
-  
-  #customContainer .remove-btn:hover {
-    color: #ef4444;
-  }
-  /* Custom page becomes a drawing canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    /* background: #f9fafb; */
-  }
-  
-  .custom-card {
-    position: absolute;
-    cursor: grab;
-    user-select: none;
-  }
-  /* Custom canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    /* background: #ecf2f7; */
-    overflow: visible; /* 🔑 allow free expansion */
-  }
-  
-  /* Custom cards */
-  .custom-card {
-    position: absolute;
-    overflow: visible;   /* 🔑 remove clipping */
-    max-width: none;     /* 🔑 no constraint */
-    max-height: none;
-  }
-  
-  .custom-card.dragging {
-    cursor: grabbing;
-    opacity: 0.85;
-    z-index: 9999;
-  }
-  .custom-card {
-    font-size: 14px; /* default */
-  }
-  
-  /* user can override via UI later */
-  
-  /* resize handle */
-  .custom-card .resize-handle {
-    position: absolute;
-    right: 6px;
-    bottom: 6px;
-    width: 14px;
-    height: 14px;
-    /* cursor: nwse-resize; */
-    background: rgba(0,0,0,0.3);
-    border-radius: 3px;
-  }
-  .simple-table {
-    width: 100%;
-    table-layout: auto; /* 🔑 allows text growth */
-  }
-  
-  .simple-table td,
-  .simple-table th {
-    white-space: normal; /* 🔑 allow wrapping */
-    word-break: break-word;
-  }
-  /* Custom table card */
-  .custom-card.table-card {
-    height: auto;
-    max-height: none;
-  }
-  
-  /* Table itself */
-  .custom-card.table-card table {
-    width: 100%;
-    table-layout: fixed;
-  }
-  
-  /* Prevent overflow */
-  .custom-card.table-card {
-    overflow: hidden;
-  }
-  /* Chart card */
-  .custom-card.chart-card {
-    height: 320px;          /* 🔑 fixed height */
-    min-height: 320px;
-    max-height: 320px;
-  }
-  
-  /* Chart canvas fills width only */
-  .custom-card.chart-card canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  
-  .custom-card.table-card {
-    overflow: hidden;      /* no scroll */
-  }
-  
-  .custom-card.table-card table {
-    width: 100%;
-    table-layout: fixed;
-  }
-  
-  .custom-card.table-card .resize-handle {
-    cursor: ew-resize;     /* width only */
-  }
-  /* Canvas */
-  #customContainer {
-    position: relative;
-    min-height: 80vh;
-    overflow: visible;
-  }
-  
-  /* Movable + resizable cards */
-  .custom-card {
-    position: absolute;
-    overflow: visible;
-    max-width: none;
-    max-height: none;
-    min-width: 40px;     /* allow VERY small */
-    min-height: 30px;    /* allow VERY small */
-  }
-  
-  /* Resize handle */
-  .custom-card .resize-handle {
-    position: absolute;
-    right: 4px;
-    bottom: 4px;
-    width: 12px;
-    height: 12px;
-    cursor: nwse-resize;
-    background: rgba(0,0,0,0.35);
-    border-radius: 2px;
-  }
-  
-  /* ===========================
+#customContainer {
+  position: relative;
+  min-height: 80vh;
+  width: 70%;
+  overflow: visible;
+  background-color: rgb(240, 240, 240);
+}
+
+ /* ===========================
    A4 PAGE SYSTEM
 =========================== */
 
 .a4-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: center;
   padding: 20px;
-  background: #e5e7eb;
+  background: #fafafa;
 }
 
 /* A4 PAGE */
@@ -291,28 +74,145 @@
 .page-controls {
   display: flex;
   gap: 12px;
-  margin: 20px;
+  margin: 10px;
 }
+.btn {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.remove-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+/* ===========================
+  TABLES & CHART CARDS
+=========================== */
+/* CHART CARD */
+.panel,.chartpanel {
+  position: relative; 
+  /* background: #ffffff; */
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.custom-card.chart-card {
+  height: 320px;         
+  min-height: 320px;
+  max-height: 320px;
+}
+.custom-card.chart-card canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* TABLE CARD */
+.panel {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  transition:background-color 0.2s ease,border-color 0.2s ease,box-shadow 0.2s ease;
+}
+.simple-table {
+  width: 100%;
+  table-layout: auto;
+}
+.simple-table td,
+.simple-table th {
+  white-space: normal;
+  word-break: break-word;
+}
+.custom-card.table-card {
+  height: auto;
+  max-height: none;
+  overflow: hidden;
+}
+.custom-card.table-card table {
+  width: 100%;
+  table-layout: fixed;
+}
+.custom-card.table-card .resize-handle {
+  cursor: ew-resize;
+}
+
+/* TABLE & CHART SELECT,HOVER */
+.chartpanel.selected {
+  background-color: #eef5ff;
+  border-color: #2563eb;
+}
+.panel.clickable:hover {
+  background-color: #4294e6;
+}
+.panel.selected {
+  background-color: #2be42b;        
+  border-color: #3b82f6;           
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+}
+.active-print-page {
+  outline: 2px solid #2563eb;
+}
+
+/* Custom page layout */
+/* .custom-grid {
+  height: 100vh;
+  width: 100%;
+  background-color: #7dee14;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 18px;
+} */
 
 /* ===========================
    CUSTOM CARDS
 =========================== */
-
 .custom-card {
   position: absolute;
-  background: white;
+  /* background: rgb(247, 55, 55); */
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 12px;
   cursor: grab;
+  font-size: 14px;
 }
-
+.custom-card {
+  position: absolute;
+  overflow: visible;   
+  max-width: none;     
+  max-height: none;
+  user-select: none;
+}
 .custom-card.dragging {
   cursor: grabbing;
   opacity: 0.85;
   z-index: 9999;
 }
 
+/* Remove button */
+.custom-card .remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  color: #6b7280;
+}
+.custom-card .remove-btn:hover {
+  color: #f72323;
+}
+
+/* CARD RESIZE */
 .custom-card .resize-handle {
   position: absolute;
   right: 4px;
@@ -321,15 +221,16 @@
   height: 12px;
   background: rgba(0,0,0,0.35);
   cursor: nwse-resize;
+  border-radius: 3px;
 }
-
-/* ===========================
-   PRINT
-=========================== */
 
 /* ===========================
    FORCE TRUE A4 PRINT
 =========================== */
+/* ===========================
+   PRINT ONLY CUSTOM PAGE
+=========================== */
+
 @page {
   size: A4;
   margin: 0;
@@ -337,39 +238,47 @@
 
 @media print {
 
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
+  /* show only custom page */
+  body > * {
+    display: none !important;
   }
 
-  /* hide everything */
-  body * {
-    visibility: hidden;
-  }
-
-  /* show only A4 pages */
-  .a4-page,
-  .a4-page * {
-    visibility: visible;
+  #customPage {
+    display: block !important;
   }
 
   .a4-page {
+    display: block !important;
     width: 210mm;
     height: 297mm;
-    margin: 0;
     page-break-after: always;
-    box-shadow: none;
-    border: none;
   }
 
-  .page-controls {
+  /* 🔑 THIS IS THE KEY */
+  .custom-card {
+    position: relative !important;   /* override absolute */
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  table {
+    display: table !important;
+    width: 100% !important;
+  }
+
+  canvas {
+    display: block !important;
+  }
+
+  .no-print,
+  button {
     display: none !important;
   }
 }
+
 @media print {
-  .a4-page {
-    outline: 2px solid red;
-  }
+  .a4-page { outline: 2px solid red; }
+  table { outline: 2px solid blue; }
+  canvas { outline: 2px solid green; }
 }
